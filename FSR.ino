@@ -5,8 +5,15 @@ void setup() {
 
 void loop() {
   int val = analogRead(A0);//อ่านค่าที่pin A0ที่ต่ออยู่กับตัวFSR แล้วนำไปเก็บที่ตัวแปล val
-  Serial.print("FSR resistance = ");
-  Serial.println(val);//แสดงค่าแรงกดใน Serial monitor
-  delay(200);
-
+  
+  //แสดงค่าแรงกดใน Serial monitor
+  //ตั้งค่าดีเลย์กันคอมค้าง
+  if(val>500){
+    Serial.print("pressure = ");
+    Serial.println(val);
+    delay(300);
+  }else{
+    Serial.println("No pressure");
+    delay(300);
+  }
 }
